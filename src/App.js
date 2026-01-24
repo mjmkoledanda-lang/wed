@@ -84,7 +84,7 @@ function App() {
                 >
                     <div>
                         <p className="text-2xl md:text-4xl font-semibold">
-                            Tap anywhere to start music
+                            Tap anywhere to start audio
                         </p>
                         <p className="text-sm mt-2 opacity-70">
                             Please allow audio to enjoy the experience
@@ -230,7 +230,41 @@ function App() {
                             </div>
 
                             {/* Map Embed */}
-                            <div className="flex-1 overflow-hidden rounded-3xl shadow-xl min-h-[300px]">
+                            <div className="flex-1 relative overflow-hidden rounded-3xl shadow-xl min-h-[300px]">
                                 <iframe
                                     title="Wedding Location"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5946305073207!2d79.9692585!3d6.572735099999
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5946305073207!2d79.9692585!3d6.572735099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae237006541d533%3A0x83c56abe1a801459!2sPearl%20Grand%20Banquet%20Hall!5e0!3m2!1sen!2slk!4v1769275470162!5m2!1sen!2slk"
+                                    className="absolute inset-0 w-full h-full"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+
+                        </div>
+                    </section>
+                )}
+
+            </main>
+
+            {/* MUSIC BUTTON */}
+            <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="fixed bottom-4 md:bottom-6 right-4 md:right-6 w-14 h-14 md:w-16 md:h-16 bg-white/90 rounded-full shadow-2xl flex items-center justify-center text-[#D4AF37] z-40"
+            >
+                {isPlaying ? <Music2 className="animate-pulse" /> : <Music />}
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#D4AF37] rounded-full flex items-center justify-center text-[8px] text-white font-bold">
+                    {isPlaying ? 'ON' : 'OFF'}
+                </div>
+            </button>
+
+            {/* FOOTER */}
+            <footer className="py-4 md:py-6 text-center text-xs tracking-widest opacity-40">
+                &copy; 2026 Mohamed Shazeen. All Rights Reserved.
+            </footer>
+        </div>
+    );
+}
+
+export default App;
