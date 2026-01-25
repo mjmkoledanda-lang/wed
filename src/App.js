@@ -25,6 +25,8 @@ function App() {
     const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
     const [fade, setFade] = useState(true);
     const audioRef = useRef(null);
+    const [mapLoading, setMapLoading] = useState(true);
+
 
     const weddingDate = "May 21, 2026";
     const weddingTime = "08:00 PM";
@@ -106,12 +108,32 @@ function App() {
         setOverlayVisible(false);
     };
 
-    const handleRsvpSubmit = (e) => {
+    const handleRsvpSubmit = async (e) => {
         e.preventDefault();
         if (!rsvpName) return;
-        setRsvpSubmitted(true);
-        setRsvpName('');
-        setRsvpMessage('');
+
+        try {
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbzzOwmgSzvXARa582hwlasllhSWvXUbuVYSgVIgjCJKjLgiz2nzY0xCgQTkJKlfQ57g4Q/exec",
+                {
+                    method: "POST",
+                    mode: "no-cors", // ✅ IMPORTANT
+                    body: JSON.stringify({
+                        name: rsvpName,
+                        message: rsvpMessage,
+                    }),
+                }
+            );
+
+            // ✅ Assume success (Google Script executed)
+            setRsvpSubmitted(true);
+            setRsvpName("");
+            setRsvpMessage("");
+
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     return (
@@ -189,9 +211,37 @@ function App() {
                             Cordially invite you to celebrate their
                             <span className="block text-2xl md:text-3xl mt-2 not-italic">Wedding Function</span>
                         </p>
-                        <div className="mt-6 md:mt-8">
-                            <p className="text-4xl md:text-5xl text-[#D4AF37]">{weddingDate}</p>
-                            <p className="uppercase text-xs md:text-sm tracking-widest mt-2">Pearl Grand Banquet Hall</p>
+                        <div className="mt-6 md:mt-8 flex flex-col items-center gap-2">
+                            <div className="flex flex-col items-center gap-1">
+                                <p className="text-3xl md:text-4xl lg:text-5xl text-[#D4AF37]">
+                                    {weddingDate}
+                                </p>
+
+                                <p className="text-sm md:text-base tracking-widest uppercase opacity-70">
+                                    {weddingTime}
+                                </p>
+                            </div>
+
+
+                            <p className="uppercase text-xs md:text-sm tracking-widest">
+                                Pearl Grand Banquet Hall
+                            </p>
+
+                            {/* ROUTE BUTTON */}
+                            <button
+                                onClick={() => handleTabClick('location')}
+                                className="mt-1 px-4 py-1.5
+               border border-[#D4AF37]
+               text-[#D4AF37]
+               rounded-full
+               text-[10px] md:text-xs
+               uppercase tracking-widest
+               hover:bg-[#D4AF37]
+               hover:text-white
+               transition-all duration-300"
+                            >
+                                Route to Venue
+                            </button>
                         </div>
                         <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-3">
                             {countdown.expired ? (
@@ -240,10 +290,48 @@ function App() {
                                 <p className="text-sm md:text-base">{weddingTime}</p>
                             </div>
                         </div>
-                        <a href={googleDriveLink} target="_blank" rel="noreferrer"
-                           className="inline-flex items-center w-full md:w-auto justify-center px-6 py-3 md:px-8 md:py-4 bg-[#D4AF37] text-white rounded-full uppercase tracking-widest text-xs md:text-sm font-bold">
-                            <Upload className="mr-2" /> Upload Memories
-                        </a>
+                        {/* ACTION BUTTONS */}
+                        <div className="flex flex-col items-center gap-4 pt-2 md:pt-4">
+
+                            {/* RSVP BUTTON */}
+                            <button
+                                onClick={() => handleTabClick('rsvp')}
+                                className="inline-flex items-center justify-center
+               px-8 py-3 md:px-10 md:py-4
+               border-2 border-[#D4AF37]
+               text-[#D4AF37]
+               rounded-full
+               uppercase tracking-widest
+               text-xs md:text-sm
+               font-bold
+               hover:bg-[#D4AF37]
+               hover:text-white
+               transition-all duration-300"
+                            >
+                                <Heart className="mr-2" size={16} />
+                                RSVP Now
+                            </button>
+
+                            {/* UPLOAD MEMORIES */}
+                            <a
+                                href={googleDriveLink}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center justify-center
+               px-8 py-3 md:px-10 md:py-4
+               bg-[#D4AF37]
+               text-white
+               rounded-full
+               uppercase tracking-widest
+               text-xs md:text-sm
+               font-bold"
+                            >
+                                <Upload className="mr-2" />
+                                Upload Memories
+                            </a>
+
+                        </div>
+
                     </section>
                 )}
 
@@ -277,6 +365,17 @@ function App() {
                                 </a>
                             </div>
                             <div className="flex-1 relative overflow-hidden rounded-3xl shadow-xl min-h-[300px]">
+
+                                {/* MAP LOADER */}
+                                {mapLoading && (
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-10">
+                                        <MapPin className="text-[#D4AF37] animate-bounce mb-2" size={28} />
+                                        <p className="text-xs uppercase tracking-widest opacity-70">
+                                            Loading map...
+                                        </p>
+                                    </div>
+                                )}
+
                                 <iframe
                                     title="Wedding Location"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5946305073207!2d79.9692585!3d6.572735099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae237006541d533%3A0x83c56abe1a801459!2sPearl%20Grand%20Banquet%20Hall!5e0!3m2!1sen!2slk!4v1769275470162!5m2!1sen!2slk"
@@ -285,8 +384,10 @@ function App() {
                                     allowFullScreen
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
+                                    onLoad={() => setMapLoading(false)} // ✅ KEY LINE
                                 />
                             </div>
+
                         </div>
                     </section>
                 )}
