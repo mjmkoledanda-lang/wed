@@ -162,13 +162,19 @@ function App() {
             {/* NAVBAR */}
             <nav className="fixed top-0 w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4">
                 <div className="max-w-6xl mx-auto flex justify-between items-center">
-                    <h2 className="text-xl italic cursor-pointer"
-                        onClick={() => handleTabClick('home')} // Navigate to Home tab
-
+                    <h2
+                        className="text-xl italic cursor-pointer"
+                        onClick={() => handleTabClick('home')}
                     >
-
-                        Shazeen <span className="text-[#D4AF37]">&</span> Shimra
+                        <span className="shimmer-text">Shazeen</span>
+                        <span className="mx-1 text-[#a6a6a6]">&</span>
+                        <span className="shimmer-text">Shimra</span>
                     </h2>
+
+
+
+
+
 
                     {/* Desktop */}
                     <div className="hidden md:flex space-x-2">
@@ -201,12 +207,18 @@ function App() {
                 {/* HOME */}
                 {activeTab === 'home' && fade && (
                     <section className="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-6 md:space-y-8 px-2 md:px-0 transition-opacity duration-300 opacity-100">
-            <span className="border-y border-[#D4AF37] px-4 py-1 text-[#D4AF37] text-xs tracking-[0.3em] uppercase">
+                        <p className="text-[10px] sm:text-xs md:text-sm tracking-[0.3em] text-[#D4AF37] opacity-80 font-light">
+                            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                        </p>
+                        <span className="border-y border-[#D4AF37] px-4 py-1 text-[#D4AF37] text-xs tracking-[0.3em] uppercase">
               Together with their families
             </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light italic leading-tight">
-                            Shazeen <span className="text-[#D4AF37] mx-2 md:mx-4">&</span> Shimra
+                            <span className="shimmer-text">Shazeen</span>
+                            <span className="text-[#a6a6a6] mx-2 md:mx-4">&</span>
+                            <span className="shimmer-text">Shimra</span>
                         </h1>
+
                         <p className="italic opacity-70 text-lg md:text-xl">
                             Cordially invite you to celebrate their
                             <span className="block text-2xl md:text-3xl mt-2 not-italic">Wedding Function</span>
@@ -242,6 +254,24 @@ function App() {
                             >
                                 Route to Venue
                             </button>
+                            {/* RSVP BUTTON */}
+                            <button
+                                onClick={() => handleTabClick('rsvp')}
+                                className="inline-flex items-center justify-center
+               px-8 py-3 md:px-10 md:py-4
+               border-2 border-[#D4AF37]
+               text-[#D4AF37]
+               rounded-full
+               uppercase tracking-widest
+               text-xs md:text-sm
+               font-bold
+               hover:bg-[#D4AF37]
+               hover:text-white
+               transition-all duration-300"
+                            >
+                                <Heart className="mr-2" size={16} />
+                                RSVP Now
+                            </button>
                         </div>
                         <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-3">
                             {countdown.expired ? (
@@ -257,10 +287,17 @@ function App() {
                                 ))
                             )}
                         </div>
+                        {/* More Details Button */}
                         <button onClick={() => handleTabClick('invitation')} className="flex flex-col items-center text-[#D4AF37] mt-4 md:mt-6">
                             <span className="text-xs uppercase tracking-widest font-bold">More Details</span>
                             <ChevronDown className="animate-bounce mt-1 md:mt-2" />
                         </button>
+
+                        {/* Wedding Dua under More Details */}
+                        <p className="mt-2 text-[10px] sm:text-xs tracking-[0.3em] text-[#D4AF37] opacity-70 font-light">
+                            بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْر
+                        </p>
+
                     </section>
                 )}
 
@@ -406,6 +443,31 @@ function App() {
             <footer className="py-4 md:py-6 text-center text-xs tracking-widest opacity-40">
                 &copy; 2026 Mohamed Shazeen. All Rights Reserved.
             </footer>
+
+                <style>{`
+  .shimmer-text {
+    background: linear-gradient(
+      110deg,
+      #b9922f 20%,
+      #fff2b2 40%,
+      #d4af37 60%,
+      #b9922f 80%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    to {
+      background-position: -200% center;
+    }
+  }
+`}</style>
+
+
         </div>
     );
 }
