@@ -75,6 +75,35 @@ function App() {
             else audioRef.current.pause();
         }
     }, [isPlaying]);
+    // STOP AUDIO WHEN APP GOES TO BACKGROUND OR TAB IS CLOSED
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                audio.pause();
+            } else if (isPlaying) {
+                audio.play().catch(() => {});
+            }
+        };
+
+        const stopAudio = () => {
+            audio.pause();
+            audio.currentTime = 0;
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        window.addEventListener("beforeunload", stopAudio);
+        window.addEventListener("pagehide", stopAudio);
+
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            window.removeEventListener("beforeunload", stopAudio);
+            window.removeEventListener("pagehide", stopAudio);
+        };
+    }, [isPlaying]);
+
 
     // Handle tab switching with fade effect
     const handleTabClick = (tab) => {
