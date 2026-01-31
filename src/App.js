@@ -23,10 +23,13 @@ function App() {
     const [rsvpName, setRsvpName] = useState('');
     const [rsvpMessage, setRsvpMessage] = useState('');
     const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+    const [showRsvpDialog, setShowRsvpDialog] = useState(false);
     const [fade, setFade] = useState(true);
     const audioRef = useRef(null);
     const [mapLoading, setMapLoading] = useState(true);
     const [rsvpLoading, setRsvpLoading] = useState(false);
+    const [nameError, setNameError] = useState("");
+
 
 
     const weddingDate = "May 21, 2026";
@@ -143,7 +146,25 @@ function App() {
 
     const handleRsvpSubmit = async (e) => {
         e.preventDefault();
-        if (!rsvpName) return;
+        const trimmedName = rsvpName.trim();
+
+        if (!trimmedName) {
+            setNameError("Please enter your name");
+            return;
+        }
+
+        if (trimmedName.length < 3) {
+            setNameError("Name must be at least 3 characters");
+            return;
+        }
+
+        if (!/^[A-Za-z\s]+$/.test(trimmedName)) {
+            setNameError("Name can contain only letters");
+            return;
+        }
+
+        setNameError(""); // clear error if valid
+
 
         setRsvpLoading(true); // 🔹 START LOADING
 
@@ -161,8 +182,8 @@ function App() {
             );
 
             setRsvpSubmitted(true);
-            setRsvpName("");
-            setRsvpMessage("");
+            setShowRsvpDialog(true); // show dialog
+
 
         } catch (error) {
             console.error(error);
@@ -420,12 +441,21 @@ function App() {
                         className="max-w-2xl mx-auto bg-white/50 rounded-3xl p-6 md:p-10 shadow-xl space-y-6 text-center transition-opacity duration-300 opacity-100">
                         <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
                         <p className="text-sm md:text-base opacity-80">Please let us know if you will be attending.</p>
-                        {rsvpSubmitted && <p className="text-green-600 font-semibold">RSVP submitted successfully!</p>}
                         <form onSubmit={handleRsvpSubmit} className="flex flex-col space-y-4">
                             <input type="text" placeholder="Your Name" value={rsvpName}
-                                   onChange={(e) => setRsvpName(e.target.value)}
+                                   onChange={(e) => {
+                                       setRsvpName(e.target.value);
+                                       setNameError("");
+                                   }}
+
                                    className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base"
-                                   required/>
+                                   />
+                            {nameError && (
+                                <p className="text-red-600 text-xs md:text-sm text-left">
+                                    {nameError}
+                                </p>
+                            )}
+
                             <textarea placeholder="Message (optional)" value={rsvpMessage}
                                       onChange={(e) => setRsvpMessage(e.target.value)}
                                       className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base resize-none"/>
@@ -535,7 +565,58 @@ function App() {
       background-position: -200% center;
     }
   }
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
 `}</style>
+            {/* RSVP SUCCESS DIALOG */}
+            {showRsvpDialog && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
+                    <div className="bg-[#FFFBF5] rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 text-center animate-fadeIn">
+
+                        <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-[#D4AF37]/20 mb-4">
+                            <Heart className="text-[#D4AF37]" size={32} />
+                        </div>
+
+                        <h3 className="text-2xl md:text-3xl font-light italic mb-3">
+                            RSVP Submitted
+                        </h3>
+
+                        <p className="text-base md:text-lg font-medium mb-1">
+                            Thank you, <span className="text-[#D4AF37]">{rsvpName}</span>!
+                        </p>
+
+                        <p className="text-sm md:text-base opacity-80 mb-6">
+                            We truly appreciate you confirming your attendance.
+                            We look forward to celebrating this special day with you.
+                        </p>
+
+                        <button
+                            onClick={() => {
+                                setShowRsvpDialog(false);
+                                setRsvpName("");
+                                setRsvpMessage("");
+                            }}
+                            className="px-8 py-3 rounded-full bg-[#D4AF37] text-white uppercase tracking-widest text-xs md:text-sm font-bold hover:bg-[#b9922f] transition"
+                        >
+                            Close
+                        </button>
+
+                    </div>
+                </div>
+            )}
 
 
         </div>
