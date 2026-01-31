@@ -26,6 +26,8 @@ function App() {
     const [fade, setFade] = useState(true);
     const audioRef = useRef(null);
     const [mapLoading, setMapLoading] = useState(true);
+    const [rsvpLoading, setRsvpLoading] = useState(false);
+
 
 
     const weddingDate = "May 21, 2026";
@@ -141,12 +143,14 @@ function App() {
         e.preventDefault();
         if (!rsvpName) return;
 
+        setRsvpLoading(true); // 🔹 START LOADING
+
         try {
             await fetch(
                 "https://script.google.com/macros/s/AKfycbzzOwmgSzvXARa582hwlasllhSWvXUbuVYSgVIgjCJKjLgiz2nzY0xCgQTkJKlfQ57g4Q/exec",
                 {
                     method: "POST",
-                    mode: "no-cors", // ✅ IMPORTANT
+                    mode: "no-cors",
                     body: JSON.stringify({
                         name: rsvpName,
                         message: rsvpMessage,
@@ -154,7 +158,6 @@ function App() {
                 }
             );
 
-            // ✅ Assume success (Google Script executed)
             setRsvpSubmitted(true);
             setRsvpName("");
             setRsvpMessage("");
@@ -162,8 +165,11 @@ function App() {
         } catch (error) {
             console.error(error);
             alert("Something went wrong. Please try again.");
+        } finally {
+            setRsvpLoading(false); // 🔹 STOP LOADING
         }
     };
+
 
     return (
         <div className="min-h-screen bg-[#FFFBF5] text-[#4A4238] font-serif relative">
@@ -199,10 +205,6 @@ function App() {
                         <span className="mx-1 text-[#a6a6a6]">&</span>
                         <span className="shimmer-text">Shimra</span>
                     </h2>
-
-
-
-
 
 
                     {/* Desktop */}
@@ -412,7 +414,25 @@ function App() {
                                    className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base" required />
                             <textarea placeholder="Message (optional)" value={rsvpMessage} onChange={(e) => setRsvpMessage(e.target.value)}
                                       className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base resize-none" />
-                            <button type="submit" className="bg-[#D4AF37] text-white rounded-full px-6 py-2 md:px-8 md:py-3 uppercase tracking-widest font-bold hover:bg-[#b9922f] transition">Submit RSVP</button>
+                            <button
+                                type="submit"
+                                disabled={rsvpLoading}
+                                className={`rounded-full px-6 py-2 md:px-8 md:py-3 uppercase tracking-widest font-bold transition
+    ${rsvpLoading
+                                    ? "bg-[#D4AF37]/60 cursor-not-allowed"
+                                    : "bg-[#D4AF37] hover:bg-[#b9922f] text-white"
+                                }`}
+                            >
+                                {rsvpLoading ? (
+                                    <span className="flex items-center justify-center gap-2">
+            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+            Submitting...
+        </span>
+                                ) : (
+                                    "Submit RSVP"
+                                )}
+                            </button>
+
                         </form>
                     </section>
                 )}
