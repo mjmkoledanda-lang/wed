@@ -72,6 +72,42 @@ function App() {
         return () => clearInterval(interval);
     }, []);
 
+    // iOS KEYBOARD VIEWPORT FIX
+    useEffect(() => {
+        const setAppHeight = () => {
+            const height =
+                window.visualViewport?.height || window.innerHeight;
+            document.documentElement.style.setProperty(
+                "--app-height",
+                `${height}px`
+            );
+        };
+
+        setAppHeight();
+
+        window.addEventListener("resize", setAppHeight);
+        window.visualViewport?.addEventListener("resize", setAppHeight);
+
+        return () => {
+            window.removeEventListener("resize", setAppHeight);
+            window.visualViewport?.removeEventListener("resize", setAppHeight);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (activeTab === "rsvp") {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [activeTab]);
+
+
+
     // Audio play/pause
     useEffect(() => {
         if (audioRef.current) {
@@ -446,12 +482,30 @@ function App() {
                 {/* RSVP */}
                 {activeTab === 'rsvp' && fade && (
                     <section
-                        className="max-w-2xl mx-auto bg-white/50 rounded-3xl p-6 md:p-10 shadow-xl space-y-6 text-center transition-opacity duration-300 opacity-100">
-                        <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
+                        className="max-w-2xl mx-auto bg-white/50 rounded-3xl p-6 md:p-10 shadow-xl space-y-6 text-center overflow-y-auto"
+                        style={{
+                            maxHeight: "calc(var(--app-height) - 10rem)",
+                            WebkitOverflowScrolling: "touch",
+                        }}
+                    >
+
+                    <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
                         <p className="text-sm md:text-base opacity-80">Please let us know if you will be attending.</p>
                         <form onSubmit={handleRsvpSubmit} className="flex flex-col space-y-4">
-                            <input type="text" placeholder="Your Name" value={rsvpName}
-                                   onChange={(e) => {
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                value={rsvpName}
+                                onFocus={(e) => {
+                                    setTimeout(() => {
+                                        e.target.scrollIntoView({
+                                            behavior: "smooth",
+                                            block: "center",
+                                        });
+                                    }, 300);
+                                }}
+
+                                onChange={(e) => {
                                        setRsvpName(e.target.value);
                                        setNameError("");
                                    }}
@@ -605,6 +659,9 @@ html, body {
   height: 100%;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+}
+input, textarea, button {
+  font-size: 16px;
 }
 input, textarea, button {
   font-size: 16px;
