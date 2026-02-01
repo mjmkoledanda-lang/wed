@@ -31,7 +31,6 @@ function App() {
     const [nameError, setNameError] = useState("");
 
 
-
     const weddingDate = "May 21, 2026";
     const weddingTime = "08:00 PM";
     const locationAddress = "No.60, Moor Street, Kalutara South.";
@@ -105,7 +104,6 @@ function App() {
             document.body.style.overflow = "auto";
         };
     }, [activeTab]);
-
 
 
     // Audio play/pause
@@ -233,7 +231,7 @@ function App() {
     return (
         <div
             className="bg-[#FFFBF5] text-[#4A4238] font-serif relative"
-            style={{ minHeight: "var(--app-height)" }}
+            style={{minHeight: "var(--app-height)"}}
         >
 
             {/* Audio */}
@@ -259,9 +257,9 @@ function App() {
             {/* NAVBAR */}
             <nav
                 className="fixed w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4"
-                style={{ top: "env(safe-area-inset-top)" }}
+                style={{top: "env(safe-area-inset-top)"}}
             >
-            <div className="max-w-6xl mx-auto flex justify-between items-center">
+                <div className="max-w-6xl mx-auto flex justify-between items-center">
                     <h2
                         className="text-xl italic cursor-pointer"
                         onClick={() => handleTabClick('home')}
@@ -301,9 +299,9 @@ function App() {
             {/* MAIN CONTENT */}
             <main
                 className="px-4 md:px-6 lg:px-12 transition-all duration-300"
-                style={{ paddingTop: "calc(7rem + env(safe-area-inset-top))" }}
+                style={{paddingTop: "calc(7rem + env(safe-area-inset-top))"}}
             >
-            {/* HOME */}
+                {/* HOME */}
                 {activeTab === 'home' && fade && (
                     <section
                         className="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-6 md:space-y-8 px-2 md:px-0 transition-opacity duration-300 opacity-100">
@@ -489,8 +487,9 @@ function App() {
                         }}
                     >
 
-                    <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
-                        <p className="border border-[#D4AF37] rounded-lg px-4 py-3">Please let us know if you will be attending.</p>
+                        <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
+                        <p className=" rounded-lg px-4 py-3">Please let us know if you will be
+                            attending.</p>
                         <form onSubmit={handleRsvpSubmit} className="flex flex-col space-y-4">
                             <input
                                 type="text"
@@ -506,12 +505,12 @@ function App() {
                                 }}
 
                                 onChange={(e) => {
-                                       setRsvpName(e.target.value);
-                                       setNameError("");
-                                   }}
+                                    setRsvpName(e.target.value);
+                                    setNameError("");
+                                }}
 
-                                   className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base"
-                                   />
+                                className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base"
+                            />
                             {nameError && (
                                 <p className="text-red-600 text-xs md:text-sm text-left">
                                     {nameError}
@@ -592,15 +591,47 @@ function App() {
             </main>
 
             {/* MUSIC BUTTON */}
-            <button onClick={() => setIsPlaying(!isPlaying)}
-                    className="fixed right-4 md:right-6 ..."
-                    style={{ bottom: "calc(2rem + env(safe-area-inset-bottom))" }}
->
-                {isPlaying ? <Music2 className="animate-pulse"/> : <Music/>}
-                <div
-                    className="absolute -top-1 -right-1 w-5 h-5 bg-[#D4AF37] rounded-full flex items-center justify-center text-[8px] text-white font-bold">
-                    {isPlaying ? 'ON' : 'OFF'}
-                </div>
+            <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                aria-label="Toggle music"
+                className="
+    fixed
+    right-4 md:right-6
+    z-50
+    w-12 h-12
+    flex items-center justify-center
+    rounded-full
+    border-2 border-[#D4AF37]
+    bg-white/80 backdrop-blur
+    text-[#5C3A2E]
+    active:scale-95
+    transition-all
+  "
+                style={{
+                    bottom: "calc(3rem + env(safe-area-inset-bottom))",
+                }}
+            >
+                {isPlaying ? (
+                    <Music2 className="w-5 h-5 animate-pulse" />
+                ) : (
+                    <Music className="w-5 h-5" />
+                )}
+
+                {/* ON / OFF DOT */}
+                <span
+                    className="
+      absolute -top-1 -right-1
+      w-4 h-4
+      rounded-full
+      bg-[#D4AF37]
+      text-[7px]
+      text-white
+      font-bold
+      flex items-center justify-center
+    "
+                >
+    {isPlaying ? "ON" : "OFF"}
+  </span>
             </button>
 
             {/* FOOTER */}
@@ -691,10 +722,12 @@ button {
                     }}
                 >
 
-                <div className="bg-[#FFFBF5] rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 text-center animate-fadeIn">
+                    <div
+                        className="bg-[#FFFBF5] rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 text-center animate-fadeIn">
 
-                        <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-[#D4AF37]/20 mb-4">
-                            <Heart className="text-[#D4AF37]" size={32} />
+                        <div
+                            className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-[#D4AF37]/20 mb-4">
+                            <Heart className="text-[#D4AF37]" size={32}/>
                         </div>
 
                         <h3 className="text-2xl md:text-3xl font-light italic mb-3">
