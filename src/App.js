@@ -195,7 +195,10 @@ function App() {
 
 
     return (
-        <div className="min-h-screen bg-[#FFFBF5] text-[#4A4238] font-serif relative">
+        <div
+            className="bg-[#FFFBF5] text-[#4A4238] font-serif relative"
+            style={{ minHeight: "var(--app-height)" }}
+        >
 
             {/* Audio */}
             <audio ref={audioRef} src="/audio/fathiha.mp3" loop/>
@@ -219,8 +222,10 @@ function App() {
 
             {/* NAVBAR */}
             <nav
-                className="fixed top-0 w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4">
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
+                className="fixed w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4"
+                style={{ top: "env(safe-area-inset-top)" }}
+            >
+            <div className="max-w-6xl mx-auto flex justify-between items-center">
                     <h2
                         className="text-xl italic cursor-pointer"
                         onClick={() => handleTabClick('home')}
@@ -258,8 +263,11 @@ function App() {
             </nav>
 
             {/* MAIN CONTENT */}
-            <main className="pt-28 px-4 md:px-6 lg:px-12 transition-all duration-300">
-                {/* HOME */}
+            <main
+                className="px-4 md:px-6 lg:px-12 transition-all duration-300"
+                style={{ paddingTop: "calc(7rem + env(safe-area-inset-top))" }}
+            >
+            {/* HOME */}
                 {activeTab === 'home' && fade && (
                     <section
                         className="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-6 md:space-y-8 px-2 md:px-0 transition-opacity duration-300 opacity-100">
@@ -531,7 +539,9 @@ function App() {
 
             {/* MUSIC BUTTON */}
             <button onClick={() => setIsPlaying(!isPlaying)}
-                    className="fixed bottom-4 md:bottom-6 right-4 md:right-6 w-14 h-14 md:w-16 md:h-16 bg-white/90 rounded-full shadow-2xl flex items-center justify-center text-[#D4AF37] z-40">
+                    className="fixed right-4 md:right-6 ..."
+                    style={{ bottom: "calc(2rem + env(safe-area-inset-bottom))" }}
+>
                 {isPlaying ? <Music2 className="animate-pulse"/> : <Music/>}
                 <div
                     className="absolute -top-1 -right-1 w-5 h-5 bg-[#D4AF37] rounded-full flex items-center justify-center text-[8px] text-white font-bold">
@@ -580,11 +590,41 @@ function App() {
   animation: fadeIn 0.3s ease-out;
 }
 
+/* iOS SAFE VIEWPORT FIX */
+:root {
+  --app-height: 100vh;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-height: 100dvh;
+  }
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+input, textarea, button {
+  font-size: 16px;
+}
+
+
 `}</style>
             {/* RSVP SUCCESS DIALOG */}
             {showRsvpDialog && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-                    <div className="bg-[#FFFBF5] rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 text-center animate-fadeIn">
+                <div
+                    className="fixed z-50 flex justify-center bg-black/60 px-4"
+                    style={{
+                        inset: 0,
+                        paddingTop: "env(safe-area-inset-top)",
+                        paddingBottom: "env(safe-area-inset-bottom)",
+                        alignItems: "center",
+                    }}
+                >
+
+                <div className="bg-[#FFFBF5] rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 text-center animate-fadeIn">
 
                         <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-[#D4AF37]/20 mb-4">
                             <Heart className="text-[#D4AF37]" size={32} />

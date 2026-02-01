@@ -7,3 +7,23 @@ body {
     margin: 0;
     background-color: #FFFBF5;
 }
+
+/* iOS SAFARI GLOBAL FIX */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Proper viewport height */
+:root {
+    --app-height: 100dvh;
+}
+
+/* Fallback for older iOS */
+@supports not (height: 100dvh) {
+    :root {
+        --app-height: 100vh;
+    }
+}
