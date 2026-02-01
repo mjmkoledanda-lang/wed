@@ -490,7 +490,7 @@ function App() {
                     >
 
                     <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
-                        <p className="text-sm md:text-base opacity-80">Please let us know if you will be attending.</p>
+                        <p className="border border-[#D4AF37] rounded-lg px-4 py-3">Please let us know if you will be attending.</p>
                         <form onSubmit={handleRsvpSubmit} className="flex flex-col space-y-4">
                             <input
                                 type="text"
@@ -660,12 +660,22 @@ html, body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
-input, textarea, button {
-  font-size: 16px;
+input,
+textarea,
+select,
+button {
+  font-size: 16px !important;
+  line-height: 1.4;
 }
-input, textarea, button {
-  font-size: 16px;
+
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
 }
+
 
 
 `}</style>
