@@ -488,8 +488,7 @@ function App() {
                     >
 
                         <h2 className="text-3xl md:text-5xl italic font-light">RSVP</h2>
-                        <p className=" rounded-lg px-4 py-3">Please let us know if you will be
-                            attending.</p>
+                        <p className=" rounded-lg px-4 py-3">Kindly confirm your attendance.</p>
                         <form onSubmit={handleRsvpSubmit} className="flex flex-col space-y-4">
                             <input
                                 type="text"
