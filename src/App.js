@@ -32,7 +32,7 @@ function App() {
 
 
     const weddingDate = "May 21, 2026";
-    const weddingTime = "08:00 PM";
+    const weddingTime = "08:15 PM";
     const locationAddress = "No.60, Moor Street, Kalutara South.";
     const contactNumber = "+94 77 688 9699";
     const googleDriveLink =
@@ -49,7 +49,7 @@ function App() {
 
     // Countdown logic
     useEffect(() => {
-        const weddingDateTime = new Date("May 21, 2026 20:00:00").getTime();
+        const weddingDateTime = new Date("May 21, 2026 20:15:00").getTime();
         const interval = setInterval(() => {
             const now = new Date().getTime();
             const distance = weddingDateTime - now;
