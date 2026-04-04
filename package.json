@@ -24,6 +24,8 @@
       "last 1 safari version"
     ]
   },
+
+  "homepage": ".",
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.2",
     "react": "^18.3.1",
