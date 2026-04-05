@@ -252,7 +252,7 @@ Pearl Grand Banquet Hall`;
                         }}
                     />
 
-                    {videoTime > 3 && videoTime < 6 && (
+                    {videoTime > 2 && videoTime < 6 && (
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
                             <div className="w-[85%] md:w-[700px] text-center px-4 md:px-10 py-6 md:py-10">
