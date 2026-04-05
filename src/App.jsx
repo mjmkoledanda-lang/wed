@@ -248,7 +248,7 @@ Pearl Grand Banquet Hall`;
 
                                 }, 600);
 
-                            }, 2000); // 👈 1 second pause here
+                            }, 500); // 👈 1 second pause here
                         }}
                     />
 
@@ -258,74 +258,88 @@ Pearl Grand Banquet Hall`;
                             <div className="w-[85%] md:w-[700px] text-center px-4 md:px-10 py-6 md:py-10">
 
                                 {/* LINE 1 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -40, filter: "blur(6px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 0.8, delay: 0 }}
-                                    className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#8c7a5b] mb-4"
-                                >
-                                    Together with their families
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0 }}
+                                        className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#8c7a5b] mb-4"
+                                    >
+                                        Together with their families
+                                    </motion.p>
+                                </div>
 
                                 {/* LINE 2 */}
-                                <motion.h1
-                                    initial={{ opacity: 0, y: -50, filter: "blur(8px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 1, delay: 0.6 }}
-                                    className="text-3xl md:text-6xl italic font-light text-[#5a4b3a] leading-tight"
-                                >
-                                    Shazeen <span className="text-[#D4AF37]">&</span> Shimra
-                                </motion.h1>
+                                <div className="overflow-hidden">
+                                    <motion.h1
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.8, delay: 0.3 }}
+                                        className="text-3xl md:text-6xl italic font-light text-[#5a4b3a] leading-tight"
+                                    >
+                                        Shazeen <span className="text-[#D4AF37]">&</span> Shimra
+                                    </motion.h1>
+                                </div>
 
                                 {/* LINE 3 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -40, filter: "blur(6px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 0.8, delay: 1.2 }}
-                                    className="text-sm md:text-lg mt-3 text-[#6b5c4d]"
-                                >
-                                    Cordially invite you to celebrate their
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.6 }}
+                                        className="text-sm md:text-lg mt-3 text-[#6b5c4d]"
+                                    >
+                                        Cordially invite you to celebrate their
+                                    </motion.p>
+                                </div>
 
                                 {/* LINE 4 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -40, filter: "blur(6px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 0.8, delay: 1.8 }}
-                                    className="text-xl md:text-3xl mt-1 font-medium text-[#5a4b3a]"
-                                >
-                                    Wedding Function
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.9 }}
+                                        className="text-xl md:text-3xl mt-1 font-medium text-[#5a4b3a]"
+                                    >
+                                        Wedding Function
+                                    </motion.p>
+                                </div>
 
                                 {/* LINE 5 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -50, filter: "blur(8px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 1, delay: 2.4 }}
-                                    className="text-[#D4AF37] text-2xl md:text-4xl mt-5 font-semibold"
-                                >
-                                    May 21, 2026
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.8, delay: 1.2 }}
+                                        className="text-[#D4AF37] text-2xl md:text-4xl mt-5 font-semibold"
+                                    >
+                                        May 21, 2026
+                                    </motion.p>
+                                </div>
 
                                 {/* LINE 6 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -30, filter: "blur(5px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 0.8, delay: 3 }}
-                                    className="text-xs md:text-sm tracking-widest text-[#8c7a5b] mt-2"
-                                >
-                                    08:00 PM
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 1.5 }}
+                                        className="text-xs md:text-sm tracking-widest text-[#8c7a5b] mt-2"
+                                    >
+                                        08:00 PM
+                                    </motion.p>
+                                </div>
 
                                 {/* LINE 7 */}
-                                <motion.p
-                                    initial={{ opacity: 0, y: -30, filter: "blur(5px)" }}
-                                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                    transition={{ duration: 0.8, delay: 3.6 }}
-                                    className="uppercase text-[10px] md:text-xs tracking-[0.3em] text-[#6b5c4d] mt-3"
-                                >
-                                    Pearl Grand Banquet Hall
-                                </motion.p>
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 1.8 }}
+                                        className="uppercase text-[10px] md:text-xs tracking-[0.3em] text-[#6b5c4d] mt-3"
+                                    >
+                                        Pearl Grand Banquet Hall
+                                    </motion.p>
+                                </div>
 
                             </div>
                         </div>
