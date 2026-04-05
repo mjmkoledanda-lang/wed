@@ -252,98 +252,98 @@ Pearl Grand Banquet Hall`;
                         }}
                     />
 
-                    {/*{videoTime > 2 && videoTime < 6 && (*/}
-                    {/*    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">*/}
+                    {videoTime > 2 && videoTime < 6 && (
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
-                    {/*        <div className="w-[85%] md:w-[700px] text-center px-4 md:px-10 py-6 md:py-10">*/}
+                            <div className="w-[85%] md:w-[700px] text-center px-4 md:px-10 py-6 md:py-10">
 
-                    {/*            /!* LINE 1 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.6, delay: 0 }}*/}
-                    {/*                    className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#8c7a5b] mb-4"*/}
-                    {/*                >*/}
-                    {/*                    Together with their families*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 1 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0 }}
+                                        className="text-[10px] md:text-xs tracking-[0.4em] uppercase text-[#8c7a5b] mb-4"
+                                    >
+                                        Together with their families
+                                    </motion.p>
+                                </div>
 
-                    {/*            /!* LINE 2 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.h1*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.8, delay: 0.3 }}*/}
-                    {/*                    className="text-3xl md:text-6xl italic font-light text-[#5a4b3a] leading-tight"*/}
-                    {/*                >*/}
-                    {/*                    Shazeen <span className="text-[#D4AF37]">&</span> Shimra*/}
-                    {/*                </motion.h1>*/}
-                    {/*            </div>*/}
+                                {/* LINE 2 */}
+                                <div className="overflow-hidden">
+                                    <motion.h1
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.8, delay: 0.3 }}
+                                        className="text-3xl md:text-6xl italic font-light text-[#5a4b3a] leading-tight"
+                                    >
+                                        Shazeen <span className="text-[#D4AF37]">&</span> Shimra
+                                    </motion.h1>
+                                </div>
 
-                    {/*            /!* LINE 3 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.6, delay: 0.6 }}*/}
-                    {/*                    className="text-sm md:text-lg mt-3 text-[#6b5c4d]"*/}
-                    {/*                >*/}
-                    {/*                    Cordially invite you to celebrate their*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 3 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.6 }}
+                                        className="text-sm md:text-lg mt-3 text-[#6b5c4d]"
+                                    >
+                                        Cordially invite you to celebrate their
+                                    </motion.p>
+                                </div>
 
-                    {/*            /!* LINE 4 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.6, delay: 0.9 }}*/}
-                    {/*                    className="text-xl md:text-3xl mt-1 font-medium text-[#5a4b3a]"*/}
-                    {/*                >*/}
-                    {/*                    Wedding Function*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 4 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 0.9 }}
+                                        className="text-xl md:text-3xl mt-1 font-medium text-[#5a4b3a]"
+                                    >
+                                        Wedding Function
+                                    </motion.p>
+                                </div>
 
-                    {/*            /!* LINE 5 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.8, delay: 1.2 }}*/}
-                    {/*                    className="text-[#D4AF37] text-2xl md:text-4xl mt-5 font-semibold"*/}
-                    {/*                >*/}
-                    {/*                    May 21, 2026*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 5 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.8, delay: 1.2 }}
+                                        className="text-[#D4AF37] text-2xl md:text-4xl mt-5 font-semibold"
+                                    >
+                                        May 21, 2026
+                                    </motion.p>
+                                </div>
 
-                    {/*            /!* LINE 6 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.6, delay: 1.5 }}*/}
-                    {/*                    className="text-xs md:text-sm tracking-widest text-[#8c7a5b] mt-2"*/}
-                    {/*                >*/}
-                    {/*                    08:00 PM*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 6 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 1.5 }}
+                                        className="text-xs md:text-sm tracking-widest text-[#8c7a5b] mt-2"
+                                    >
+                                        08:00 PM
+                                    </motion.p>
+                                </div>
 
-                    {/*            /!* LINE 7 *!/*/}
-                    {/*            <div className="overflow-hidden">*/}
-                    {/*                <motion.p*/}
-                    {/*                    initial={{ y: "120%", opacity: 0 }}*/}
-                    {/*                    animate={{ y: 0, opacity: 1 }}*/}
-                    {/*                    transition={{ duration: 0.6, delay: 1.8 }}*/}
-                    {/*                    className="uppercase text-[10px] md:text-xs tracking-[0.3em] text-[#6b5c4d] mt-3"*/}
-                    {/*                >*/}
-                    {/*                    Pearl Grand Banquet Hall*/}
-                    {/*                </motion.p>*/}
-                    {/*            </div>*/}
+                                {/* LINE 7 */}
+                                <div className="overflow-hidden">
+                                    <motion.p
+                                        initial={{ y: "120%", opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.6, delay: 1.8 }}
+                                        className="uppercase text-[10px] md:text-xs tracking-[0.3em] text-[#6b5c4d] mt-3"
+                                    >
+                                        Pearl Grand Banquet Hall
+                                    </motion.p>
+                                </div>
 
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*)}*/}
+                            </div>
+                        </div>
+                    )}
                     {/* ✨ TAP TEXT */}
                     {!introStarted && (
                         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-[180px]">
@@ -400,52 +400,24 @@ Pearl Grand Banquet Hall`;
             <main className="pt-28 px-4 md:px-6 lg:px-12 transition-all duration-300">
                 {/* HOME */}
                 {activeTab === 'home' && fade && (
-                    <motion.section
-                        initial="hidden"
-                        animate="visible"
-                        className="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-6 md:space-y-8 px-2"
-                    >
+                    <section className="min-h-[80vh] flex flex-col items-center justify-center text-center space-y-6 md:space-y-8 px-2">
 
-                        {/* LINE 1 */}
-                        <motion.span
-                            initial={{ opacity: 0, y: -60 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 0 }}
-                            className="border-y border-[#D4AF37] px-4 py-1 text-[#D4AF37] text-xs tracking-[0.3em] uppercase"
-                        >
-                            Together with their families
-                        </motion.span>
+        <span className="border-y border-[#D4AF37] px-4 py-1 text-[#D4AF37] text-xs tracking-[0.3em] uppercase">
+            Together with their families
+        </span>
 
-                        {/* LINE 2 */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: -70 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light italic"
-                        >
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light italic">
                             Shazeen <span className="text-[#D4AF37] mx-2">&</span> Shimra
-                        </motion.h1>
+                        </h1>
 
-                        {/* LINE 3 */}
-                        <motion.p
-                            initial={{ opacity: 0, y: -50 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                            className="italic opacity-70 text-lg md:text-xl"
-                        >
+                        <p className="italic opacity-70 text-lg md:text-xl">
                             Cordially invite you to celebrate their
                             <span className="block text-2xl md:text-3xl mt-2 not-italic">
                 Wedding Function
             </span>
-                        </motion.p>
+                        </p>
 
-                        {/* LINE 4 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -50 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 0.9 }}
-                            className="flex flex-col items-center gap-2"
-                        >
+                        <div className="flex flex-col items-center gap-2">
                             <p className="text-3xl md:text-4xl text-[#D4AF37]">
                                 {weddingDate}
                             </p>
@@ -455,50 +427,32 @@ Pearl Grand Banquet Hall`;
                             <p className="uppercase text-xs tracking-widest">
                                 Pearl Grand Banquet Hall
                             </p>
-                        </motion.div>
+                        </div>
 
-                        {/* LINE 5 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -40 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 1.2 }}
-                            className="flex flex-wrap justify-center gap-3 mt-4"
-                        >
+                        <div className="flex flex-wrap justify-center gap-3 mt-4">
                             {['days', 'hours', 'minutes', 'seconds'].map(unit => (
                                 <div key={unit} className="bg-[#D4AF37]/20 border border-[#D4AF37] rounded-xl px-3 py-2 text-center">
                                     <p className="text-lg font-bold text-[#D4AF37]">{countdown[unit]}</p>
                                     <p className="text-[10px] uppercase">{unit}</p>
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
 
-                        {/* LINE 6 */}
-                        <motion.button
-                            initial={{ opacity: 0, y: -40 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 1.5 }}
+                        <button
                             onClick={() => handleTabClick('rsvp')}
                             className="mt-6 px-8 py-3 bg-[#D4AF37] text-white rounded-full uppercase tracking-widest text-xs md:text-sm font-bold shadow-lg hover:scale-105 transition-all duration-300"
                         >
                             RSVP Now
-                        </motion.button>
+                        </button>
 
-                        {/* LINE 7 */}
-                        <motion.button
-                            initial={{ opacity: 0, y: -40 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 1.8 }}
+                        <button
                             onClick={() => handleTabClick('location')}
                             className="px-4 py-1.5 border border-[#D4AF37] text-[#D4AF37] rounded-full text-xs uppercase tracking-widest hover:bg-[#D4AF37] hover:text-white transition"
                         >
                             Route to Venue
-                        </motion.button>
+                        </button>
 
-                        {/* LINE 8 */}
-                        <motion.div
-                            initial={{ opacity: 0, y: -30 }}
-                            animate={startHomeAnimation ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 0.5, delay: 2.1 }}
+                        <div
                             onClick={() => handleTabClick('invitation')}
                             className="flex flex-col items-center text-[#D4AF37] cursor-pointer"
                         >
@@ -506,9 +460,9 @@ Pearl Grand Banquet Hall`;
                 More Details
             </span>
                             <ChevronDown className="animate-bounce mt-1" />
-                        </motion.div>
+                        </div>
 
-                    </motion.section>
+                    </section>
                 )}
 
                 {activeTab === 'invitation' && fade && (
