@@ -165,7 +165,7 @@ Pearl Grand Banquet Hall`;
     };
 
     return (
-        <div className="min-h-screen bg-[#FFFBF5] text-[#4A4238] font-serif relative">
+        <div className="min-h-screen bg-[#EAD7C2] text-[#4A4238] font-serif relative">
 
 
             {/* 🎬 REEL-STYLE ENVELOPE INTRO */}
