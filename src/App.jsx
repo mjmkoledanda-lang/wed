@@ -248,7 +248,7 @@ Pearl Grand Banquet Hall`;
 
                                 }, 600);
 
-                            }, 00); // 👈 1 second pause here
+                            }, 500); // 👈 1 second pause here
                         }}
                     />
 
@@ -346,7 +346,7 @@ Pearl Grand Banquet Hall`;
                     )}
                     {/* ✨ TAP TEXT */}
                     {!introStarted && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-[180px]">
+                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none mt-[10px]">
                             <p className="tracking-[0.3em] uppercase">Tap to Open</p>
                             <ChevronDown className="animate-bounce mt-3"/>
                         </div>
