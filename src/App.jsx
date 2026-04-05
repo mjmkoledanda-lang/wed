@@ -257,21 +257,39 @@ Pearl Grand Banquet Hall`;
                     )}
                     {/* ✨ TAP TEXT */}
                     {!introStarted && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                            <p className="tracking-[0.3em] uppercase">Tap to Open</p>
-                            <ChevronDown className="animate-bounce mt-3"/>
+                        <div className="absolute bottom-48 w-full flex flex-col items-center pointer-events-none">
+
+                            {/* Glow background for visibility */}
+                            <div
+                                className="bg-white/60 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-[#D4AF37]/30">
+
+                                {/* Text */}
+                                <p className="font-serif italic tracking-[0.25em] text-sm md:text-base text-[#4A4238] font-semibold">
+                                    Tap to Open
+                                </p>
+
+                            </div>
+
+                            {/* Arrow */}
+                            <ChevronDown
+                                strokeWidth={1.5}
+                                className="animate-bounce w-6 h-6 mt-3 text-[#D4AF37]"
+                            />
+
+                            {/* Decorative line */}
+                            <div className="w-px h-12 bg-gradient-to-b from-[#D4AF37] to-transparent mt-2"/>
                         </div>
                     )}
                 </div>
             )}
 
             {/* Audio */}
-            <audio ref={audioRef} src="/audio/fathiha.mp3" loop />
-
+            <audio ref={audioRef} src="/audio/fathiha.mp3" loop/>
 
 
             {/* NAVBAR */}
-            <nav className="fixed top-0 w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4">
+            <nav
+                className="fixed top-0 w-full z-40 bg-white/70 backdrop-blur border-b border-[#D4AF37]/20 px-4 md:px-6 py-4">
                 <div className="max-w-6xl mx-auto flex justify-between items-center">
                     <h2 className="text-xl italic cursor-pointer"
                         onClick={() => handleTabClick('home')} // Navigate to Home tab
