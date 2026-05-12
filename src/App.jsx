@@ -662,7 +662,7 @@ Pearl Grand Banquet Hall`;
                                 initial={{ opacity: 0, y: -30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.4, delay: 1.1 }}
-                                placeholder="Message (optional)"
+                                placeholder="Head Count & Message"
                                 value={rsvpMessage}
                                 onChange={(e) => setRsvpMessage(e.target.value)}
                                 className="border border-[#D4AF37] rounded-lg px-4 py-2 text-sm md:text-base resize-none focus:outline-none focus:ring-2 ring-[#D4AF37]/40"
